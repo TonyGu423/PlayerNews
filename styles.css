@@ -1,0 +1,54 @@
+.thumbs.up.outline.icon {
+	cursor: pointer;
+}
+
+#posttitle {
+	font-size: 20px;
+	margin-left: 10px;
+}
+
+#postsegment {
+	height: 58px;
+}
+
+.ui.attached.segment {
+	border: 0px;
+	padding-top: 19px;
+}
+
+.ui.menu {
+	height: 58px;
+}
+
+.header.item {
+	font-size: 20px;
+	color: #00B5AD!important;
+}
+
+.content.icon {
+	font-size: 20px;
+	color: #00B5AD!important;
+}
+
+.ui.login.button {
+	color: #00B5AD!important;
+	margin-right: 10px!important;
+}
+
+.ui.signup.button {
+	color: #00B5AD!important;
+	margin-right: 10px!important;
+}
+
+#addpost {
+	margin-top: 30px;
+	background: #DADADA;
+	padding-top:20px; 
+	padding-bottom:20px;
+	margin-bottom: 50px!important;
+}
+
+#largeform {
+	width: 60%;
+	display:inline-block;
+}
