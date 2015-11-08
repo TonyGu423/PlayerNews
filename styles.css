@@ -5,6 +5,7 @@
 #posttitle {
 	font-size: 20px;
 	margin-left: 10px;
+	color: white!important;
 }
 
 #postsegment {
@@ -43,7 +44,7 @@
 #addpost {
 	margin-top: 30px;
 	background: #DADADA;
-	padding-top:20px; 
+	padding-top:20px;
 	padding-bottom:20px;
 	margin-bottom: 50px!important;
 }
@@ -51,4 +52,8 @@
 #largeform {
 	width: 60%;
 	display:inline-block;
+}
+
+.ng-binding {
+	color: white;
 }
