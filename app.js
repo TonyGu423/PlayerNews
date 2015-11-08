@@ -18,11 +18,14 @@ function($stateProvider, $urlRouterProvider) {
     });
 
   $urlRouterProvider.otherwise('home');
-}]);
+}])
 
 app.factory('posts', [function(){
   var o = {
-    posts: [{title:'Hello', link:'', upvotes: 0}]
+    posts: [{title:'Hello', link:'', upvotes: 0, comments: [
+        {author: 'Joe', body: 'Cool post!', upvotes: 0},
+        {author: 'Bob', body: 'Great idea, but everything is wrong.', upvotes: 0}
+      ]}]
   };
   return o;
 }])
@@ -52,10 +55,21 @@ function($scope, posts){
   	post.upvotes += 1;
   }
 }])
+
 app.controller('PostsCtrl', [
 '$scope',
 '$stateParams',
 'posts',
 function($scope, $stateParams, posts){
-  $scope.post=posts.posts[$stateParams.id]
+  $scope.post=posts.posts[$stateParams.id];
+
+  $scope.addComment = function() {
+    if($scope.body === '') { return; }
+    $scope.post.comments.push({
+      body: $scope.body,
+      author: 'User',
+      upvotes: 0
+    });
+    $scope.body = '';
+  };
 }]);

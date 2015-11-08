@@ -52,6 +52,9 @@
 			<i class="thumbs up outline icon" ng-click="incrementUpvotes(post)"></i>
 				{{post.upvotes}}
 		</div>
+		<span>
+			<a href="#/posts/{{$index}}" style="font-size:16px;">Comments</a>
+		</span>
 		</div>
 		</div>
 		<div class="ui section divider"></div>
@@ -80,6 +83,29 @@
 	</div>
 </script>
 <script type="text/ng-template" id="/posts.html">
+	<div class="ui menu">
+	  <a class="launch icon item">
+	    <i class="content icon"></i>
+	  </a>
+	  <div class="header item">Player News</div>
+	  <div class="right menu">
+	    <div class="item">
+	  	<a class="ui login button">Log-in</a>
+	  	<a class="ui signup button">Sign up</a>
+	  	</div>
+	    <div class="item">
+	      <div class="ui action left icon input" id="search">
+	        <i class="search icon"></i>
+	        <input class="prompt" type="text" placeholder="Search...">
+	        <button class="ui button">Submit</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<div class="ui container">
+	<div class="ui center aligned container">
+	  <h1>Player News</h1>
+	</div>
 	<div id="postsegment" class="ui teal inverted top attached segment">
 		<span id="posttitle">
 		  <a ng-show="post.link" href="{{post.link}}">
@@ -90,7 +116,35 @@
 		  </span>
 		</span>
 	</div>
-	
+  <div ng-repeat="comment in post.comments | orderBy:'-upvotes'">
+		<div class="ui bottom attached block header">
+				<span style="color:black;">
+				<i style="color:black;" class="thumbs up outline icon" ng-click="incrementUpvotes(comment)"></i>
+				{{comment.upvotes}} - by {{comment.author}}
+				</span>
+				<span id="commentbody" style="font-size:16px; margin-left:10px;">
+				{{comment.body}}
+				</span>
+		</div>
+	</div>
+	<div class="ui section divider"></div>
+		<div id="addcomment" class="ui center aligned container">
+		  <h3 style="color:#00B5AD;">Add a new comment</h3>
+			<form id="largeform" ng-submit="addComment()" class="ui large form">
+				<div class="ui segment">
+					<div class="field">
+					  <div class="ui left icon input">
+					    <i class="write icon"></i>
+					    <input type="text" placeholder="Comment" ng-model="body"/>
+					    <br>
+					  </div>
+					</div>
+					<button type="submit" class="ui fluid large teal submit button">Post</button>
+				</div>
+			</form>
+	</div>
+	</div>
+	</div>
 </script>
 </body>
 </html>
